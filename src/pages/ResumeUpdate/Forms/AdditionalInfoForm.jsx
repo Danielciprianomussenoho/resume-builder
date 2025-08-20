@@ -8,25 +8,25 @@ const AdditionalInfoForm = ({
     interests, 
     updateArrayItem,
     addArrayItem, 
-    removeArrayItem
+    removeArrayItem,
 }) => {
   return (
-    <div className=''>
+    <div className='px-5 pt-5'>
          <h2 className='text-lg font-semibold text-gray-900'>Informações Adicionais</h2>
 
          {/* Languages Section */}
-         <div className=''>
-             <h3 className='text-lg font-semibold text-gray-900'>Idiomas</h3>
+         <div className='mt-6'>
+             <h3 className='text-sm font-semibold text-gray-700'>Idiomas</h3>
 
-             <div className=''>
+             <div className='flex flex-col gap-4'>
                 {languages?.map((lang, index) => (
                     <div
                     key={index}
-                    className=''
+                    className='border border-gray-200 p-4 rounded-lg relative'
                     >
-                        <div className=''>
+                        <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <Input
-                                label='Idiomas'
+                                label='Idioma'
                                 placeholder={"Ex: Inglês, Espanhol, português, etc. "}
                                 type="text"
                                 value={lang.name || ''}
@@ -34,7 +34,7 @@ const AdditionalInfoForm = ({
                             />
 
                             <div className=''>
-                                <label className=''>Proficiência</label>
+                                <label className='text-xs font-medium text-slate-600 mb-7 block'>Proficiência</label>
                                 <RatingInput
                                 value={lang.progress || 0}
                                 onChange={(value) => 
@@ -49,7 +49,7 @@ const AdditionalInfoForm = ({
                         {languages.length > 1 && (
                             <button
                             type='button'
-                            className=''
+                            className='absolute top-3 right-3 text-sm text-red-600 hover:underline cursor-pointer' 
                             onClick={() => removeArrayItem("languages", index)}
                             >
                                 <LuTrash2/>
@@ -68,15 +68,16 @@ const AdditionalInfoForm = ({
                     </button>
              </div>
          </div>
+
          {console.log(interests)}
 
          {/* Interests Section */}
-         <div className=''>
-            <h3 className='text-lg font-semibold text-gray-900'>Interesses</h3>
-            <div className=''>
+         <div className='mt-8 mb-4'>
+            <h3 className='text-sm font-semibold text-gray-700'>Interesses</h3>
+            <div className='flex flex-col'>
                 {interests?.map((interest, index) => (
                     <div 
-                    className=''
+                    className='relative rounded-lg'
                     key={index}
                     >
                         <Input
@@ -84,10 +85,10 @@ const AdditionalInfoForm = ({
                             value={interest || ''}
                             onChange={({target}) => updateArrayItem("interests", index, null, target.value)}
                         />
-                        {interests.length > 1 && (
-                             <button
+                         {interests.length > 1 && (
+                            <button
                             type='button'
-                            className=''
+                            className='absolute top-3 right-3 text-sm text-red-600 hover:underline cursor-pointer' 
                             onClick={() => removeArrayItem("interests", index)}
                             >
                                 <LuTrash2/>

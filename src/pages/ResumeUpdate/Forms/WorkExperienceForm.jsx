@@ -67,7 +67,7 @@ const WorkExperienceForm = ({WorkExperience, updateArrayItem, addArrayItem, remo
                     </button>
                     )}
                    </div>
-                 ))
+                 
                    <button 
                    className='self-start flex items-center gap-2 px-4 py-2 rounded bg-purple-100 text-purple-800 text-sm font-medium hover:bg-purple-200 cursor-pointer'
                    type='button'
